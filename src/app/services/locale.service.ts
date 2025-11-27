@@ -1,20 +1,27 @@
 import { Injectable, signal } from '@angular/core';
 
-type AvailableLocale = es'|'fr'|'en';
+export type AvailableLocale = 'es'|'fr'|'en';
 
 @Injectable({providedIn: 'root'})
 export class LocaleService {
 
   private currentLocale = signal<AvailableLocale>('es');
 
-  constructor() {}
+  constructor() {
+    this.currentLocale.set(
+      (localStorage.getItem('locale') as AvailableLocale) ?? 'es'
+    )
+  }
 
   get getLocale() {
     return this.currentLocale();
   }
 
   changeLocale(locale: AvailableLocale) {
+    localStorage.setItem('locale',locale);
     this.currentLocale.set(locale);
+    window.location.reload();
   }
+
 
 }
