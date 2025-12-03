@@ -26,4 +26,22 @@
     class="btn btn-primary">Borrar minino</button>
   </app-card>
 
+  <app-card title="SlicePipe">
+    <b>Original</b>
+    <b class="text-primary">
+      {{ mininos().join(", ") }}
+    </b>
+
+    <b class="mt-2">Slice:0:2</b>
+    <p class="text-primary">{{ mininos() | slice : 0 : 2 }}</p>
+    <b class="mt-2">Slice:1:2</b>
+    <p class="text-primary">{{ mininos() | slice : 1 : 2 }}</p>
+    <b class="mt-2">Slice:1:3</b>
+    <p class="text-primary">{{ mininos() | slice : 1 : 3 }}</p>
+    <b class="mt-2">Slice:3:4</b>
+    <p class="text-primary">{{ mininos() | slice : 3 : 4 }}</p>
+    <b class="mt-2">Slice:0:-3</b>
+    <p class="text-primary">{{ mininos() | slice : 0 : 3 }}</p>
+  </app-card>
+
 </div>
