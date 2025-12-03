@@ -7,9 +7,23 @@
 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
 
   <app-card title="i18nSelectPipe">
-    <p>Hola Celeste desde el padre</p>
+    <p>
+      Saludos {{ client().name }}, es un placer
+      {{ client().gender | i18nSelect : invitationMap }} a nuestro evento
+    </p>
 
-    <button class="btn btn-primary">Click me</button>
+    <button (click)="changeClient()" class="btn btn-primary">Cambiar cliente</button>
+  </app-card>
+
+  <app-card title="i18nPluralPipe">
+    <p>
+      Actualmente {{ mininos().length | i18nPlural:mininosMap() }}
+    </p>
+
+    <button
+    [disabled]="mininos().length == 0"
+    (click)="deleteMinino()"
+    class="btn btn-primary">Borrar minino</button>
   </app-card>
 
 </div>
