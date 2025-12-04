@@ -41,7 +41,15 @@
     <b class="mt-2">Slice:3:4</b>
     <p class="text-primary">{{ mininos() | slice : 3 : 4 }}</p>
     <b class="mt-2">Slice:0:-3</b>
-    <p class="text-primary">{{ mininos() | slice : 0 : 3 }}</p>
+    <p class="text-primary">{{ mininos() | slice : 0 : -3 }}</p>
+  </app-card>
+
+  <app-card title="JsonPipe">
+
+    <pre class="text-primary">{{ mininos() | json }}</pre>
+    <pre class="text-primary">{{ client() | json}}</pre>
+    <pre class="text-primary">{{ mininos().join(", ") | json | uppercase }}</pre>
+
   </app-card>
 
 </div>
